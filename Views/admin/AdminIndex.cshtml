@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+<!--End-->
+<div class="col-sm-12" style="border:2px solid #FFB63E;border-left:0px;border-right:0px;padding:15px;margin-bottom:20px;color: #0ed364; background:#000;">
+    <h1 style="text-align:center;font-weight:bold;">Matches Dashboard</h1>
+</div>
+    <div class="container-fluid  " style=" overflow-y:hidden ;overflow-x:hidden; ">
+
+        <table class="table" id="table_custom">
+            <caption>&nbsp;</caption>
+            <thead>
+                <tr>
+
+                    <th>Match&nbsp;ID</th>
+                    <th>Team&nbsp;One</th>
+                    <th>Team&nbsp;Two</th>
+                    <th>Who&nbsp;Win</th>
+                    <th>Who&nbsp;Lose</th>
+                    <th>Match&nbsp;Date</th>
+                    <th>Match&nbsp;Time</th>
+                    <th>Match&nbsp;Host</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody id="client_nw" class="">
+                @foreach (var x in Model)
+    {
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.Team1</td>
+                        <td>@x.Team2</td>
+                        <td>@x.Who_win</td>
+                        <td>@x.Who_lose</td>
+                        <td>@x.Match_date</td>
+                        <td>@x.Match_time</td>
+                        <td>@x.Match_host</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/admin/update_match/@x.Id">Update</a></li>
+                                    <li><a href="/admin/delete_match/@x.Id">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+
+                    </tr>
+                     }
+
+
+            </tbody>
+        </table>
+
+    </div>
+
